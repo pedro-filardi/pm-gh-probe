@@ -1,0 +1,14 @@
+name: probe
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: probe id
+        required: false
+        default: ""
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - run: echo "probe ${{ github.event.inputs.tag }} $(date -u +%Y-%m-%dT%H:%M:%S.%NZ)"
